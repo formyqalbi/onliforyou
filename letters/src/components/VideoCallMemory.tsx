@@ -17,7 +17,7 @@ export default function VideoCallMemory({ src, caption, timestamp, delay = 0 }: 
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 1, delay, ease: "easeOut" }}
     >
-      <div className={styles.screenWrapper}>
+      <div className={`${styles.screenWrapper} photo-tilt`}>
         <div className={styles.screenContent}>
           <img src={src} alt="Memory" className={styles.image} />
           

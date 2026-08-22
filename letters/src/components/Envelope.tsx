@@ -2,163 +2,169 @@
 
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { useState } from "react";
+import MagneticButton from "./MagneticButton";
 import styles from "./Envelope.module.css";
 
-// Animation variants for staggered entrance
-const container = {
-  hidden: { opacity: 0 },
-  visible: (custom = 0) => ({
-    opacity: 1,
-    transition: { staggerChildren: 0.3, delayChildren: custom },
-  }),
-};
+type Stage = "envelope" | "breaking" | "opening" | "invitation";
 
-const fadeIn = (delay = 0) => ({
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut", delay } },
-});
+const fallbackPortrait =
+  "data:image/svg+xml;charset=UTF-8," +
+  encodeURIComponent(
+    `<svg width='500' height='650' xmlns='http://www.w3.org/2000/svg'>
+      <rect width='100%' height='100%' fill='#1A1415'/>
+      <text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='#C9A47A' font-family='serif' font-size='22'>Rani</text>
+    </svg>`
+  );
 
 export default function Envelope({ onOpen }: { onOpen: () => void }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [stage, setStage] = useState<Stage>("envelope");
   const reduceMotion = useReducedMotion();
-  // Random images from each folder
-  const raniImages = [
-    '/rani/rani-01.jpeg', '/rani/rani-02.jpeg', '/rani/rani-03.jpeg', '/rani/rani-04.jpeg',
-    '/rani/rani-kiss-01.jpeg', '/rani/rani-kiss-02.jpeg', '/rani/rani-kiss-03.jpeg',
-    '/rani/rani-sleeping-01.jpeg', '/rani/rani-sleeping-02.jpeg', '/rani/rani-smile-01.jpeg',
-    '/rani/rani-smile-02.jpeg', '/rani/rani-smile-03.jpeg'
-  ];
-  const meImages = [
-    '/me/me-kiss-01.jpeg', '/me/me-kiss-02.jpeg', '/me/me-smile-01.jpeg', '/me/me-smile-02.jpeg'
-  ];
-  const videoCallImages = [
-    '/video-calls/best-video-call.jpeg', '/video-calls/call-01.jpeg', '/video-calls/call-random-01.jpeg',
-    '/video-calls/call-random-02.jpeg', '/video-calls/call-random-03.jpeg', '/video-calls/call-random-04.jpeg',
-    '/video-calls/call-sleeping-01.jpeg', '/video-calls/call-sleeping-02.jpeg',
-    '/video-calls/call-smile-01.jpeg', '/video-calls/call-smile-02.jpeg', '/video-calls/call-smile-03.jpeg'
-  ];
-  // Selected high‑quality photos from each folder (10 total)
-  const selectedImages = [
-    // Rani – best portrait
-    { src: '/rani/best-01 (1).jpeg', top: '5%',  left: '5%',  rotate: '-5deg' },
-    // Rani – kiss
-    { src: '/rani/rani-kiss-01.jpeg', top: '10%', left: '70%', rotate: '8deg' },
-    // Rani – smile
-    { src: '/rani/rani-smile-01.jpeg', top: '60%', left: '10%', rotate: '-10deg' },
-    // Me – kiss
-    { src: '/me/me-kiss-01.jpeg', top: '30%', left: '30%', rotate: '3deg' },
-    // Me – smile
-    { src: '/me/me-smile-01.jpeg', top: '70%', left: '40%', rotate: '-7deg' },
-    // Video call – best shot
-    { src: '/video-calls/best-video-call.jpeg', top: '15%', left: '45%', rotate: '0deg' },
-    // Video call – smile
-    { src: '/video-calls/call-smile-01.jpeg', top: '55%', left: '75%', rotate: '6deg' },
-    // Video call – sleeping
-    { src: '/video-calls/call-sleeping-01.jpeg', top: '80%', left: '20%', rotate: '-12deg' },
-    // Us – couple photo 1
-    { src: '/us/us-01.jpeg', top: '35%', left: '55%', rotate: '4deg' },
-    // Us – couple photo 2
-    { src: '/us/us-02.jpeg', top: '45%', left: '15%', rotate: '-6deg' },
-  ];
 
+  const handleSealClick = () => {
+    if (stage !== "envelope") return;
 
-  const handleOpen = () => {
-    setIsAnimating(true);
-    // Start envelope opening animation then call onOpen
-    setTimeout(() => {
-      setIsOpen(true);
-      setTimeout(() => {
-        onOpen();
-      }, 1500); // wait for animation to finish
-    }, 500); // button fade out delay
+    if (reduceMotion) {
+      setStage("invitation");
+      return;
+    }
+
+    setStage("breaking");
+    window.setTimeout(() => setStage("opening"), 550);
+    window.setTimeout(() => setStage("invitation"), 1550);
   };
 
-  // If user prefers reduced motion, skip staggered entrance
-  const motionProps = reduceMotion
-    ? { initial: "visible", animate: "visible", variants: {} }
-    : {
-        initial: "hidden",
-        animate: "visible",
-        variants: container,
-      };
+  const envelopeVisible = stage !== "invitation";
 
   return (
-    <motion.div
-      className={styles.container}
-      {...motionProps}
-    >
-      {/* Background already set in globals.css */}
+    <div className={styles.container}>
+      <div className={styles.ambientGlow} aria-hidden="true" />
 
-      <div className={styles.hero}>
-        {/* Left Text Section */}
-        <motion.div className={styles.textSection} variants={fadeIn(0.6)}>
-          
-          <h2 className={styles.headline}>Tears in my eyes...</h2>
-          <p className={styles.body}>
-            dont know how to express in words,<br />
-            everything you gonna read is very little that I feel about you...
-          </p>
-          <p className={styles.body}>
-            I request you to please open it<br />
-            and let me tell you how much you are to me.
-          </p>
-          <button
-            className={styles.openBtn}
-            onClick={handleOpen}
-            aria-label="Open the love letter"
-            disabled={isAnimating}
-          >
-            OPEN MY HEART ♡
-          </button>
-        </motion.div>
-
-        {/* Right Photo Section */}
-        <motion.div className={styles.photoSection} variants={fadeIn(0.8)}>
-          <div className={styles.photoWrapper}>
-            <div className={styles.photoCard}>
-              <img
-                src="/rani/best-01%20(1).jpeg"
-                alt="Rani – the love of my life (hero photo)"
-                onError={(e) => {
-                  // fallback to a placeholder with label
-                  e.currentTarget.src = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(`
-                    <svg width='400' height='600' xmlns='http://www.w3.org/2000/svg'>
-                      <rect width='100%' height='100%' fill='%23f5e6d3'/>
-                      <text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%23666' font-family='sans-serif' font-size='24'>Rani's photo</text>
-                    </svg>`);
-                }}
-                className={styles.heroPhoto}
-              />
-            </div>
-            {/* Remove parchment overlay */}
-          </div>
-            {/* New gallery of selected images */}
-            <div className={styles.usGallery}>
-              {selectedImages.map((img, idx) => (
-                <img
-                  key={idx}
-                  src={img.src}
-                  alt="Gallery"
-                  className={styles.usImage}
-                  style={{ top: img.top, left: img.left, transform: `rotate(${img.rotate})` }}
-                />
-              ))}
-            </div>
-        </motion.div>
-      </div>
-
-      {/* Envelope opening overlay */}
-      <AnimatePresence>
-        {isAnimating && !isOpen && (
+      <AnimatePresence mode="wait">
+        {envelopeVisible ? (
           <motion.div
-            className={styles.envelopeOverlay}
-            initial={{ opacity: 1 }}
-            animate={{ opacity: 0, transition: { duration: 0.5 } }}
-            exit={{ opacity: 0 }}
-          />
+            key="envelope-scene"
+            className={styles.envelopeScene}
+            exit={{ opacity: 0, scale: 0.94, filter: "blur(6px)" }}
+            transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
+          >
+            <div
+              className={`${styles.envelope} ${
+                stage === "breaking" || stage === "opening" ? styles.sealBreaking : ""
+              } ${stage === "opening" ? styles.flapOpen : ""}`}
+            >
+              <div className={styles.envelopeBody}>
+                <div className={styles.letterPeek} />
+                <div className={styles.envelopeShading} />
+              </div>
+
+              <div className={styles.envelopeFlap} />
+
+              <button
+                type="button"
+                className={styles.seal}
+                onClick={handleSealClick}
+                aria-label="Break the seal to open the letter"
+                disabled={stage !== "envelope"}
+              >
+                <span className={`${styles.sealHalf} ${styles.sealLeft}`} />
+                <span className={`${styles.sealHalf} ${styles.sealRight}`} />
+                <span className={styles.sealHeart}>♥</span>
+              </button>
+            </div>
+
+            <motion.p
+              className={styles.hint}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: stage === "envelope" ? 1 : 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              tap the seal
+            </motion.p>
+          </motion.div>
+        ) : (
+          <motion.div
+            key="invitation-scene"
+            className={styles.hero}
+            initial={{ opacity: 0, scale: 0.97, filter: "blur(6px)" }}
+            animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+            transition={{ duration: 0.9, ease: [0.2, 0.8, 0.2, 1] }}
+          >
+            <div className={styles.textSection}>
+              <motion.h2
+                className={styles.headline}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                Tears in my eyes...
+              </motion.h2>
+              <motion.p
+                className={styles.body}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                dont know how to express in words,
+                <br />
+                everything you gonna read is very little that I feel about you...
+              </motion.p>
+              <motion.p
+                className={styles.body}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+              >
+                I request you to please open it
+                <br />
+                and let me tell you how much you are to me.
+              </motion.p>
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.85 }}
+              >
+                <MagneticButton
+                  className={styles.openBtn}
+                  whileHover={{ scale: 1.04, boxShadow: "0 14px 32px rgba(201,164,122,0.4)" }}
+                  whileTap={{ scale: 0.97 }}
+                  onClick={onOpen}
+                >
+                  OPEN MY HEART ♡
+                </MagneticButton>
+              </motion.div>
+            </div>
+
+            <motion.div
+              className={styles.photoSection}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.5, ease: [0.2, 0.8, 0.2, 1] }}
+            >
+              <div className={styles.photoStack}>
+                <img
+                  src="/us/us-06.jpeg"
+                  alt=""
+                  aria-hidden="true"
+                  className={styles.photoBehind}
+                  onError={(e) => {
+                    e.currentTarget.style.display = "none";
+                  }}
+                />
+                <div className={`${styles.photoCard} photo-tilt`}>
+                  <img
+                    src="/rani/rani-smile-01.jpeg"
+                    alt="Rani"
+                    className={styles.heroPhoto}
+                    onError={(e) => {
+                      e.currentTarget.src = fallbackPortrait;
+                    }}
+                  />
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
         )}
       </AnimatePresence>
-    </motion.div>
+    </div>
   );
 }

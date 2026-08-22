@@ -4,6 +4,9 @@ import { useState } from "react";
 import Envelope from "@/components/Envelope";
 import CinematicText from "@/components/CinematicText";
 import VideoCallMemory from "@/components/VideoCallMemory";
+import ScrollProgress from "@/components/ScrollProgress";
+import ChapterRail from "@/components/ChapterRail";
+import BirthdayBurst from "@/components/BirthdayBurst";
 import styles from "./page.module.css";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -16,6 +19,8 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
+      <ScrollProgress />
+      <ChapterRail />
       <AnimatePresence>
         {opened && (
           <motion.div
@@ -49,7 +54,7 @@ export default function Home() {
             {/* 6. RANI — THE WOMAN I LOVE */}
             <section className={`${styles.section} ${styles.warmSection}`}>
               <CinematicText>
-                <div className={styles.photoFull}>
+                <div className={`${styles.photoFull} photo-tilt`}>
                   <img src="/rani/rani-01.jpeg" alt="Rani" onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800'; }} />
                 </div>
               </CinematicText>
@@ -158,7 +163,7 @@ export default function Home() {
             {/* 10. THE LITTLE THINGS I LOVE ABOUT YOU */}
             <section className={`${styles.section} ${styles.darkSection} ${styles.sectionTall}`}>
               <CinematicText>
-                <div className={styles.photoFull} style={{ position: 'sticky', top: '20vh', opacity: 0.5 }}>
+                <div className={`${styles.photoFull} photo-tilt`} style={{ position: 'sticky', top: '20vh', opacity: 0.5 }}>
                   <img src="/rani/rani-smile-04.jpeg" alt="Rani smiling" onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800'; }} />
                 </div>
               </CinematicText>
@@ -202,7 +207,7 @@ export default function Home() {
             {/* 11. THE MOON */}
             <section className={`${styles.section} ${styles.warmSection}`} style={{ minHeight: '80vh' }}>
               <CinematicText>
-                <div className={styles.photoFull} style={{ borderRadius: '50%', width: '300px', height: '300px', margin: '0 auto 3rem auto' }}>
+                <div className={`${styles.photoFull} photo-tilt`} style={{ borderRadius: '50%', width: '300px', height: '300px', margin: '0 auto 3rem auto' }}>
                   <img src="/rani/rani-02.jpeg" alt="Moon" style={{ objectFit: 'cover', height: '100%' }} onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800'; }} />
                 </div>
               </CinematicText>
@@ -261,10 +266,10 @@ export default function Home() {
             <section className={`${styles.section} ${styles.warmSection}`}>
               <div className={styles.photoGrid}>
                 <CinematicText yOffset={0}>
-                  <div className={styles.photoFull} style={{ margin: 0 }}><img src="/rani/rani-03.jpeg" alt="Rani" onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800'; }} /></div>
+                  <div className={`${styles.photoFull} photo-tilt`} style={{ margin: 0 }}><img src="/rani/rani-03.jpeg" alt="Rani" onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800'; }} /></div>
                 </CinematicText>
                 <CinematicText delay={0.3} yOffset={0}>
-                  <div className={styles.photoFull} style={{ margin: 0 }}><img src="/me/me-smile-01.jpeg" alt="Me" onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=800'; }} /></div>
+                  <div className={`${styles.photoFull} photo-tilt`} style={{ margin: 0 }}><img src="/me/me-smile-01.jpeg" alt="Me" onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=800'; }} /></div>
                 </CinematicText>
               </div>
 
@@ -282,7 +287,7 @@ export default function Home() {
               </CinematicText>
 
               <CinematicText delay={2}>
-                <div className={styles.photoFull} style={{ marginTop: '5rem' }}>
+                <div className={`${styles.photoFull} photo-tilt`} style={{ marginTop: '5rem' }}>
                   <img src="/us/us-01.jpeg" alt="Us" onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&q=80&w=800'; }} />
                 </div>
               </CinematicText>
@@ -317,22 +322,22 @@ export default function Home() {
 
               <div className={styles.photoGrid}>
                 <CinematicText yOffset={0}>
-                  <div className={styles.photoFull} style={{ margin: 0 }}>
+                  <div className={`${styles.photoFull} photo-tilt`} style={{ margin: 0 }}>
                     <img src="/us/us-07.jpeg" alt="Us Together" onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&q=80&w=800'; }} />
                   </div>
                 </CinematicText>
                 <CinematicText delay={0.3} yOffset={0}>
-                  <div className={styles.photoFull} style={{ margin: 0 }}>
+                  <div className={`${styles.photoFull} photo-tilt`} style={{ margin: 0 }}>
                     <img src="/us/us-08.jpeg" alt="Us Together" onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&q=80&w=800'; }} />
                   </div>
                 </CinematicText>
                 <CinematicText delay={0.6} yOffset={0}>
-                  <div className={styles.photoFull} style={{ margin: 0 }}>
+                  <div className={`${styles.photoFull} photo-tilt`} style={{ margin: 0 }}>
                     <img src="/us/us-09.jpeg" alt="Us Together" onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&q=80&w=800'; }} />
                   </div>
                 </CinematicText>
                 <CinematicText delay={0.9} yOffset={0}>
-                  <div className={styles.photoFull} style={{ margin: 0 }}>
+                  <div className={`${styles.photoFull} photo-tilt`} style={{ margin: 0 }}>
                     <img src="/us/us-10.jpeg" alt="Us Together" onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&q=80&w=800'; }} />
                   </div>
                 </CinematicText>
@@ -405,7 +410,7 @@ export default function Home() {
               </CinematicText>
 
               <CinematicText delay={3}>
-                <div className={styles.photoFull} style={{ maxWidth: '400px', opacity: 0.6 }}>
+                <div className={`${styles.photoFull} photo-tilt`} style={{ maxWidth: '400px', opacity: 0.6 }}>
                   <img src="/us/us-11.jpeg" alt="Quiet moment" onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800'; }} />
                 </div>
               </CinematicText>
@@ -442,7 +447,7 @@ export default function Home() {
               </CinematicText>
 
               <CinematicText delay={1}>
-                <div className={styles.photoFull} style={{ borderRadius: '50px 50px 8px 8px' }}>
+                <div className={`${styles.photoFull} photo-tilt`} style={{ borderRadius: '50px 50px 8px 8px' }}>
                   <img src="/rani/rani-smile-07.jpeg" alt="Beautiful Rani" onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800'; }} />
                 </div>
               </CinematicText>
@@ -580,7 +585,7 @@ export default function Home() {
               </CinematicText>
 
               <CinematicText delay={7}>
-                <div className={styles.photoFull} style={{ marginTop: '6rem' }}>
+                <div className={`${styles.photoFull} photo-tilt`} style={{ marginTop: '6rem' }}>
                   <img src="/rani/rani-smile-05.jpeg" alt="My Love" onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800'; }} />
                 </div>
               </CinematicText>
@@ -636,7 +641,7 @@ export default function Home() {
             {/* 25. FINAL REALIZATION */}
             <section className={`${styles.section} ${styles.darkSection}`}>
               <CinematicText>
-                <div className={styles.photoFull} style={{ opacity: 0.8, filter: 'grayscale(30%)' }}>
+                <div className={`${styles.photoFull} photo-tilt`} style={{ opacity: 0.8, filter: 'grayscale(30%)' }}>
                   <img src="/us/us-03.jpeg" alt="Real life" onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&q=80&w=800'; }} />
                 </div>
               </CinematicText>
@@ -697,11 +702,13 @@ export default function Home() {
                 </p>
               </CinematicText>
 
-              <CinematicText delay={10} duration={3}>
-                <p className="font-serif text-gold" style={{ fontSize: '2.5rem', letterSpacing: '1px' }}>
-                  Happy Birthday, meri Rani. ❤️
-                </p>
-              </CinematicText>
+              <BirthdayBurst>
+                <CinematicText delay={10} duration={3}>
+                  <p className={`font-serif text-gold ${styles.birthdayGlow}`} style={{ fontSize: '2.5rem', letterSpacing: '1px' }}>
+                    Happy Birthday, meri Rani. ❤️
+                  </p>
+                </CinematicText>
+              </BirthdayBurst>
 
               <CinematicText delay={13} duration={2}>
                 <p style={{ marginTop: '2rem', color: 'rgba(255,255,255,0.5)', fontStyle: 'italic' }}>
