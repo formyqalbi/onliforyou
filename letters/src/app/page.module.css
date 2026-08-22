@@ -1,0 +1,114 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.storyContent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 2rem;
+  max-width: 900px;
+  margin: 2rem auto;
+  background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+.sectionTall {
+  min-height: 150vh;
+}
+
+.textBlock {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  text-align: center;
+  margin: 2rem 0;
+  max-width: 600px;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.textLarge {
+  font-size: 1.8rem;
+  line-height: 1.5;
+}
+
+.photoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  width: 100%;
+  margin: 3rem 0;
+}
+
+.photoFull {
+  width: 100%;
+  max-width: 800px;
+  margin: 3rem auto;
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.photoFull img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Specific section backgrounds */
+.darkSection {
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+}
+
+.warmSection {
+  background-color: var(--bg-warm);
+  color: var(--text-warm);
+}
+
+.listOverlay {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 4rem 0;
+}
+
+.listItem {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.finalScreen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  color: #fff;
+  width: 100%;
+  padding: 2rem;
+}
