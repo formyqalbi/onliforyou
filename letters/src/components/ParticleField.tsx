@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useSyncExternalStore } from "react";
 
 type Particle = {
   id: number;
@@ -24,8 +24,29 @@ function makeParticles(count: number): Particle[] {
   }));
 }
 
+// Math.random() would produce different values during SSR vs. the client's
+// first render, causing a hydration mismatch on every particle. Generating
+// the (stable, one-time) client value through useSyncExternalStore — server
+// snapshot empty, client snapshot computed once and cached — sidesteps that
+// without an effect-driven setState.
+const EMPTY: Particle[] = [];
+let cached: Particle[] | null = null;
+
+function subscribe() {
+  return () => {};
+}
+
+function getSnapshot() {
+  if (!cached) cached = makeParticles(22);
+  return cached;
+}
+
+function getServerSnapshot() {
+  return EMPTY;
+}
+
 export default function ParticleField() {
-  const particles = useMemo(() => makeParticles(22), []);
+  const particles = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   return (
     <div className="particleField" aria-hidden="true">

@@ -16,6 +16,14 @@ const fallbackPortrait =
     </svg>`
   );
 
+const SCATTERED_PHOTOS = [
+  { src: "/rani/rani-kiss-01.jpeg", alt: "", top: "2%", left: "58%", rotate: 7, width: "34%" },
+  { src: "/me/me-smile-01.jpeg", alt: "", top: "4%", left: "8%", rotate: -8, width: "30%" },
+  { src: "/us/us-06.jpeg", alt: "", top: "60%", left: "2%", rotate: -6, width: "32%" },
+  { src: "/video-calls/call-smile-01.jpeg", alt: "", top: "66%", left: "62%", rotate: 9, width: "34%" },
+  { src: "/rani/rani-sleeping-01.jpeg", alt: "", top: "34%", left: "78%", rotate: 5, width: "26%" },
+];
+
 export default function Envelope({ onOpen }: { onOpen: () => void }) {
   const [stage, setStage] = useState<Stage>("envelope");
   const reduceMotion = useReducedMotion();
@@ -48,9 +56,8 @@ export default function Envelope({ onOpen }: { onOpen: () => void }) {
             transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
           >
             <div
-              className={`${styles.envelope} ${
-                stage === "breaking" || stage === "opening" ? styles.sealBreaking : ""
-              } ${stage === "opening" ? styles.flapOpen : ""}`}
+              className={`${styles.envelope} ${stage === "breaking" || stage === "opening" ? styles.sealBreaking : ""
+                } ${stage === "opening" ? styles.flapOpen : ""}`}
             >
               <div className={styles.envelopeBody}>
                 <div className={styles.letterPeek} />
@@ -78,7 +85,7 @@ export default function Envelope({ onOpen }: { onOpen: () => void }) {
               animate={{ opacity: stage === "envelope" ? 1 : 0 }}
               transition={{ duration: 0.6 }}
             >
-              tap the seal
+              tap the heart
             </motion.p>
           </motion.div>
         ) : (
@@ -141,15 +148,26 @@ export default function Envelope({ onOpen }: { onOpen: () => void }) {
               transition={{ duration: 1, delay: 0.5, ease: [0.2, 0.8, 0.2, 1] }}
             >
               <div className={styles.photoStack}>
-                <img
-                  src="/us/us-06.jpeg"
-                  alt=""
-                  aria-hidden="true"
-                  className={styles.photoBehind}
-                  onError={(e) => {
-                    e.currentTarget.style.display = "none";
-                  }}
-                />
+                {SCATTERED_PHOTOS.map((p, i) => (
+                  <img
+                    key={i}
+                    src={p.src}
+                    alt={p.alt}
+                    aria-hidden="true"
+                    className={`${styles.scatteredPhoto} photo-tilt`}
+                    style={
+                      {
+                        top: p.top,
+                        left: p.left,
+                        width: p.width,
+                        "--rotate": `${p.rotate}deg`,
+                      } as React.CSSProperties
+                    }
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                ))}
                 <div className={`${styles.photoCard} photo-tilt`}>
                   <img
                     src="/rani/rani-smile-01.jpeg"

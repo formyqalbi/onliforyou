@@ -1,0 +1,38 @@
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.center {
+  align-items: center;
+  text-align: center;
+}
+
+.lead {
+  font-size: var(--fs-2xl);
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--paper);
+  letter-spacing: -0.01em;
+}
+
+.body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--paper-soft);
+  max-width: 580px;
+}
+
+.highlight {
+  padding: 18px 28px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 30px rgba(201, 162, 112, 0.1);
+  width: fit-content;
+  max-width: 100%;
+}

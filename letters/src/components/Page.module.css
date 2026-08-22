@@ -1,0 +1,58 @@
+.page {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(40px, 6vh, 72px) clamp(20px, 6vw, 96px);
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+  overflow: hidden;
+}
+
+.pageInner {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.flourish {
+  position: absolute;
+  bottom: clamp(16px, 4vh, 36px);
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--accent-gold);
+  opacity: 0.32;
+  font-size: 1rem;
+  z-index: 1;
+}
+
+.dark {
+  background-color: var(--bg-dark);
+}
+
+.warm {
+  background-color: var(--bg-warm);
+}
+
+.black {
+  background-color: #000;
+}
+
+.dark-to-warm {
+  background-image: linear-gradient(to bottom, var(--bg-dark) 0%, var(--bg-warm) 100%);
+}
+
+.warm-to-dark {
+  background-image: linear-gradient(to bottom, var(--bg-warm) 0%, var(--bg-dark) 100%);
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: clamp(32px, 5vh, 56px) 20px;
+  }
+}

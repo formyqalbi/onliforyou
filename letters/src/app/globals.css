@@ -6,19 +6,21 @@
    ═══════════════════════════════════════════ */
 
 :root {
-  /* Backgrounds */
-  --bg-deep: #0E0B0B;
-  --bg-dark: #120F0F;
-  --bg-warm: #1A1415;
+  /* Backgrounds — near-black for the quiet/dramatic pages,
+     a real warm mahogany-wine for the tender pages, so the two
+     actually read as distinct moods rather than two shades of black */
+  --bg-deep: #0D0908;
+  --bg-dark: #15100D;
+  --bg-warm: #3B2116;
 
   /* Paper / text */
-  --paper: #F4EBDD;
-  --paper-soft: #EAE0D1;
-  --text-muted: #8A7E75;
+  --paper: #F8EFDD;
+  --paper-soft: #ECDFC7;
+  --text-muted: #B29A83;
 
   /* Accents */
-  --accent-rose: #B77B78;
-  --accent-gold: #C9A47A;
+  --accent-rose: #CC8F80;
+  --accent-gold: #E0B472;
 
   /* Borders & dividers */
   --border-soft: rgba(244, 235, 221, 0.08);
@@ -70,6 +72,7 @@ html, body {
   line-height: 1.7;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -149,12 +152,12 @@ body::before {
 .text-gold {
   background: linear-gradient(
     100deg,
-    #a9814f 0%,
-    #e8c98d 22%,
-    #f7e6bc 32%,
-    #e8c98d 42%,
-    #a9814f 64%,
-    #c9a47a 100%
+    #b3854f 0%,
+    #f0cf94 22%,
+    #fff2cf 32%,
+    #f0cf94 42%,
+    #b3854f 64%,
+    #e0b472 100%
   );
   background-size: 260% 100%;
   background-position: 0% 50%;
@@ -174,6 +177,26 @@ body::before {
   .text-gold {
     animation: none;
     background-position: 30% 50%;
+  }
+}
+
+.birthdayGlow {
+  animation: birthdayBreathe 3.5s ease-in-out infinite;
+}
+
+@keyframes birthdayBreathe {
+  0%, 100% {
+    text-shadow: 0 0 18px rgba(201, 164, 122, 0.35), 0 0 40px rgba(201, 164, 122, 0.12);
+  }
+  50% {
+    text-shadow: 0 0 28px rgba(201, 164, 122, 0.55), 0 0 60px rgba(201, 164, 122, 0.22);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .birthdayGlow {
+    animation: none;
+    text-shadow: 0 0 24px rgba(201, 164, 122, 0.4);
   }
 }
 
@@ -312,30 +335,37 @@ body::before {
   border-color: rgba(201, 164, 122, 0.9);
 }
 
-/* ── Chapter rail ─────────────────────────── */
+/* ── Page counter ─────────────────────────── */
 
-.chapterRail {
+.pageCounter {
   position: fixed;
-  right: 28px;
-  top: 50%;
-  transform: translateY(-50%);
+  top: clamp(18px, 3vh, 32px);
+  right: clamp(20px, 4vw, 44px);
   z-index: 55;
   display: flex;
-  flex-direction: column;
-  gap: 14px;
-  align-items: center;
+  align-items: baseline;
+  gap: 8px;
+  font-family: var(--font-serif);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  color: var(--paper-soft);
+  opacity: 0.55;
+  pointer-events: none;
 }
 
-.railDot {
-  display: block;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--accent-gold);
+.pageCounterDivider {
+  width: 14px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.5;
 }
 
-@media (max-width: 900px) {
-  .chapterRail {
-    display: none;
+.pageCounterTotal {
+  opacity: 0.6;
+}
+
+@media (max-width: 560px) {
+  .pageCounter {
+    font-size: 0.7rem;
   }
 }
