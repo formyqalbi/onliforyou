@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Alex+Brush&family=Patrick+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Alex+Brush&family=Architects+Daughter&display=swap');
 
 /* ═══════════════════════════════════════════
    DESIGN SYSTEM — Letters I Never Sent You
@@ -27,7 +27,7 @@
 
   /* Typography — the letter itself reads handwritten (font-sans); font-ui
      is the clean fallback for buttons/labels/counters that need to stay legible */
-  --font-sans: 'Patrick Hand', cursive;
+  --font-sans: 'Architects Daughter', cursive;
   --font-ui: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-serif: 'Fraunces', Georgia, serif;
   --font-script: 'Alex Brush', cursive;
@@ -338,8 +338,11 @@ body::before {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .floatingHearts {
-    display: none;
+  .floatHeart {
+    animation: none;
+    bottom: auto;
+    top: 50%;
+    opacity: var(--heart-opacity, 0.4);
   }
 }
 
