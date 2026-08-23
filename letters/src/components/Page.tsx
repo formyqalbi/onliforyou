@@ -48,6 +48,11 @@ export default function Page({
       className={`${styles.page} ${styles[theme]} ${className}`}
       aria-label={`Page ${index} of ${total}`}
     >
+      {ornament && (
+        <span className={styles.watermark} aria-hidden="true">
+          ❤
+        </span>
+      )}
       <div className={styles.pageInner}>{children}</div>
       {ornament && (
         <span className={styles.flourish} aria-hidden="true">

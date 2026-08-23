@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Alex+Brush&family=Caveat:wght@400;500;600;700&display=swap');
 
 /* ═══════════════════════════════════════════
    DESIGN SYSTEM — Letters I Never Sent You
@@ -25,10 +25,12 @@
   /* Borders & dividers */
   --border-soft: rgba(246, 217, 230, 0.08);
 
-  /* Typography */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-serif: 'Playfair Display', Georgia, serif;
-  --font-script: 'Great Vibes', cursive;
+  /* Typography — the letter itself reads handwritten (font-sans); font-ui
+     is the clean fallback for buttons/labels/counters that need to stay legible */
+  --font-sans: 'Caveat', cursive;
+  --font-ui: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-script: 'Alex Brush', cursive;
 
   /* Spacing scale (8px base) */
   --sp-1: 8px;
@@ -43,7 +45,7 @@
   /* Type scale */
   --fs-xs: clamp(0.7rem, 0.65rem + 0.25vw, 0.8rem);
   --fs-sm: clamp(0.8rem, 0.75rem + 0.25vw, 0.9rem);
-  --fs-body: clamp(1rem, 0.95rem + 0.3vw, 1.15rem);
+  --fs-body: clamp(1.15rem, 1.05rem + 0.35vw, 1.35rem);
   --fs-lg: clamp(1.2rem, 1.1rem + 0.5vw, 1.5rem);
   --fs-xl: clamp(1.5rem, 1.2rem + 1vw, 2rem);
   --fs-2xl: clamp(1.8rem, 1.4rem + 1.5vw, 2.5rem);
@@ -67,7 +69,7 @@ html, body {
   background-color: var(--bg-deep);
   color: var(--paper);
   font-family: var(--font-sans);
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: 0.01em;
   line-height: 1.7;
   overflow-x: hidden;
@@ -143,6 +145,12 @@ body::before {
 
 .font-serif {
   font-family: var(--font-serif);
+}
+
+.font-script {
+  font-family: var(--font-script);
+  font-weight: 400;
+  line-height: 1.3;
 }
 
 .text-warm {

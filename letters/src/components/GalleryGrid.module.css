@@ -17,7 +17,7 @@
 
 .back {
   align-self: flex-start;
-  font-family: var(--font-sans);
+  font-family: var(--font-ui);
   font-size: 0.85rem;
   color: var(--text-muted);
   text-decoration: none;
@@ -38,7 +38,7 @@
 }
 
 .count {
-  font-family: var(--font-sans);
+  font-family: var(--font-ui);
   font-size: 0.9rem;
   color: var(--text-muted);
   margin: 0 0 8px;
@@ -54,7 +54,7 @@
 }
 
 .filterBtn {
-  font-family: var(--font-sans);
+  font-family: var(--font-ui);
   font-size: 0.85rem;
   letter-spacing: 0.03em;
   color: var(--paper-soft);
@@ -72,14 +72,14 @@
 }
 
 .filterActive {
-  background: linear-gradient(135deg, var(--accent-gold), #b3895f);
+  background: linear-gradient(135deg, var(--accent-rose), var(--accent-gold));
   border-color: transparent;
-  color: #1a1211;
+  color: var(--bg-deep);
   font-weight: 500;
 }
 
 .filterActive:hover {
-  color: #1a1211;
+  color: var(--bg-deep);
 }
 
 /* ── Masonry ──────────────────────────────── */
@@ -215,7 +215,7 @@
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  font-family: var(--font-sans);
+  font-family: var(--font-ui);
   font-size: 0.8rem;
   color: var(--text-muted);
   letter-spacing: 0.08em;

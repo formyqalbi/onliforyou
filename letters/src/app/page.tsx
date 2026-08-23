@@ -86,7 +86,7 @@ export default function Home() {
                   <p className={txt.body}>I kept my brain aside.</p>
                 </CinematicText>
                 <CinematicText delay={4}>
-                  <h2 className={`${txt.lead} font-serif text-gold`} style={{ marginTop: '2rem' }}>
+                  <h2 className="font-script text-gold" style={{ fontSize: '2.6rem', marginTop: '2rem' }}>
                     Just my love.
                   </h2>
                 </CinematicText>
@@ -566,7 +566,7 @@ export default function Home() {
                 </BirthdayBurst>
 
                 <CinematicText delay={13} duration={2}>
-                  <p style={{ color: 'rgba(255,255,255,0.5)', fontStyle: 'italic' }}>Your husband-to-be.</p>
+                  <p className="font-script" style={{ color: 'rgba(255,255,255,0.65)', fontSize: '1.8rem' }}>Your husband-to-be.</p>
                 </CinematicText>
 
                 <CinematicText delay={16} duration={2}>

@@ -20,6 +20,64 @@
   z-index: 1;
 }
 
+/* Ambient glow blobs — fill the dead space around short/centered text on
+   tall viewports without competing with the content sitting above them */
+.page::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  right: -8%;
+  width: clamp(280px, 40vw, 520px);
+  height: clamp(280px, 40vw, 520px);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 111, 160, 0.16) 0%, transparent 70%);
+  filter: blur(10px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page::after {
+  content: '';
+  position: absolute;
+  bottom: -14%;
+  left: -10%;
+  width: clamp(240px, 34vw, 440px);
+  height: clamp(240px, 34vw, 440px);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 159, 192, 0.12) 0%, transparent 70%);
+  filter: blur(10px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.black::before,
+.black::after {
+  opacity: 0.5;
+}
+
+/* A single oversized script glyph, barely-there, sitting behind the
+   text block — gives sparse pages some visual weight instead of flat color */
+.watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  font-family: var(--font-script);
+  font-size: clamp(8rem, 32vw, 22rem);
+  color: var(--accent-gold);
+  opacity: 0.05;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 0;
+  user-select: none;
+}
+
+@media (max-width: 640px) {
+  .watermark {
+    display: none;
+  }
+}
+
 .flourish {
   position: absolute;
   bottom: clamp(16px, 4vh, 36px);

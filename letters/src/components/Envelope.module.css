@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(ellipse at 50% 40%, #1c1513 0%, #0e0b0b 65%, #080606 100%);
+  background: radial-gradient(ellipse at 50% 40%, var(--bg-warm) 0%, var(--bg-deep) 65%, #0A030A 100%);
   overflow-y: auto;
   overflow-x: hidden;
   z-index: 100;
@@ -38,7 +38,7 @@
   position: absolute;
   inset: 0;
   border-radius: 6px;
-  background: linear-gradient(160deg, #241a18 0%, #1a1211 55%, #150f0e 100%);
+  background: linear-gradient(160deg, #2E1425 0%, #20101B 55%, #170B14 100%);
   border: 1px solid rgba(255, 111, 160, 0.25);
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(0, 0, 0, 0.4);
   overflow: hidden;
@@ -74,7 +74,7 @@
   left: -1px;
   right: -1px;
   height: 62%;
-  background: linear-gradient(155deg, #2c211e 0%, #1d1513 60%, #170f0e 100%);
+  background: linear-gradient(155deg, #351A2A 0%, #23111D 60%, #180C15 100%);
   border: 1px solid rgba(255, 111, 160, 0.25);
   border-bottom: none;
   clip-path: polygon(0 0, 100% 0, 50% 100%);
@@ -122,7 +122,7 @@
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  background: radial-gradient(circle at 32% 28%, #a35a55 0%, #7a3230 45%, #521f1f 100%);
+  background: radial-gradient(circle at 32% 28%, #E8698F 0%, #B33D66 45%, #7A1F45 100%);
   box-shadow:
     inset 0 2px 3px rgba(255, 255, 255, 0.18),
     inset 0 -6px 10px rgba(0, 0, 0, 0.45);
@@ -166,7 +166,7 @@
 }
 
 .hint {
-  font-family: var(--font-sans);
+  font-family: var(--font-ui);
   font-size: 0.75rem;
   letter-spacing: 0.28em;
   text-transform: uppercase;
@@ -193,19 +193,19 @@
 }
 
 .headline {
-  font-family: var(--font-serif);
-  font-size: clamp(2.2rem, 5vw, 3.2rem);
-  font-weight: 500;
-  margin: 0 0 1.75rem;
-  color: var(--paper);
-  line-height: 1.2;
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: clamp(2.8rem, 7vw, 4.2rem);
+  margin: 0 0 1.25rem;
+  color: var(--accent-rose);
+  line-height: 1.25;
 }
 
 .body {
   font-family: var(--font-sans);
-  font-weight: 300;
-  font-size: clamp(1rem, 1.6vw, 1.15rem);
-  line-height: 1.75;
+  font-weight: 400;
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
+  line-height: 1.6;
   color: var(--paper-soft);
   margin: 0 0 1.35rem;
   max-width: 460px;
@@ -214,8 +214,8 @@
 .openBtn {
   align-self: flex-start;
   margin-top: 1.5rem;
-  background: linear-gradient(135deg, var(--accent-gold), #b3895f);
-  color: #1a1211;
+  background: linear-gradient(135deg, var(--accent-rose), var(--accent-gold));
+  color: var(--bg-deep);
   border: none;
   padding: 0.95rem 2.4rem;
   border-radius: 9999px;
@@ -249,7 +249,7 @@
   aspect-ratio: 3 / 4;
   object-fit: cover;
   border-radius: 6px;
-  border: 5px solid #f4ebdd;
+  border: 5px solid var(--paper);
   box-shadow: 0 14px 34px rgba(0, 0, 0, 0.5);
   transform: rotate(var(--rotate));
   z-index: 1;
@@ -260,7 +260,7 @@
   z-index: 2;
   width: 52%;
   max-width: 280px;
-  background: linear-gradient(150deg, #fff8ec, #ecdcc0);
+  background: linear-gradient(150deg, var(--paper), var(--paper-soft));
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0 25px 55px rgba(0, 0, 0, 0.5);
