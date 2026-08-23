@@ -66,7 +66,7 @@ export default function FloatingHearts() {
             } as React.CSSProperties
           }
         >
-          ♥
+          {"♥︎"}
         </span>
       ))}
     </div>

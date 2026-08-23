@@ -50,7 +50,7 @@ export default function Page({
     >
       {ornament && (
         <span className={styles.watermark} aria-hidden="true">
-          ❤
+          {"❤︎"}
         </span>
       )}
       <div className={styles.pageInner}>{children}</div>

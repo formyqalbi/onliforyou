@@ -90,7 +90,7 @@ export default function Envelope({ onOpen }: { onOpen: () => void }) {
               >
                 <span className={`${styles.sealHalf} ${styles.sealLeft}`} />
                 <span className={`${styles.sealHalf} ${styles.sealRight}`} />
-                <span className={styles.sealHeart}>♥</span>
+                <span className={styles.sealHeart}>{"♥︎"}</span>
               </button>
 
               {stage === "breaking" && <div className={styles.sealFlash} aria-hidden="true" />}
@@ -111,7 +111,7 @@ export default function Envelope({ onOpen }: { onOpen: () => void }) {
                       }}
                       transition={{ duration: 0.9, delay: h.delay, ease: [0.16, 0.8, 0.3, 1] }}
                     >
-                      ♥
+                      {"♥︎"}
                     </motion.span>
                   ))}
                 </div>
