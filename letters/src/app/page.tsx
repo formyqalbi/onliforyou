@@ -571,7 +571,7 @@ export default function Home() {
 
                 <CinematicText delay={16} duration={2}>
                   <Link href="/gallery" className={styles.galleryLink}>
-                    Our love gallery →
+                    📸 Our love gallery →
                   </Link>
                 </CinematicText>
               </ClimaxPage>
