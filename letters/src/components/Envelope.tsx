@@ -3,7 +3,6 @@
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { useState } from "react";
 import MagneticButton from "./MagneticButton";
-import EnvelopeHearts from "./EnvelopeHearts";
 import styles from "./Envelope.module.css";
 
 const SEAL_BURST = Array.from({ length: 14 }, (_, i) => {
@@ -60,7 +59,6 @@ export default function Envelope({ onOpen }: { onOpen: () => void }) {
   return (
     <div className={styles.container}>
       <div className={styles.ambientGlow} aria-hidden="true" />
-      <EnvelopeHearts />
 
       <AnimatePresence mode="wait">
         {envelopeVisible ? (

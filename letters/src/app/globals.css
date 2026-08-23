@@ -295,6 +295,54 @@ body::before {
   }
 }
 
+/* ── Floating hearts (site-wide ambient background) ── */
+
+.floatingHearts {
+  position: fixed;
+  inset: 0;
+  /* Above the envelope's own opaque overlay (z-index: 100) so hearts
+     stay visible on the envelope/invitation screen too, not just the
+     journal pages behind it. */
+  z-index: 120;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.floatHeart {
+  position: absolute;
+  bottom: -8%;
+  line-height: 1;
+  font-family: sans-serif;
+  animation-name: heartFloat;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
+  filter: drop-shadow(0 0 6px rgba(255, 111, 160, 0.25));
+}
+
+@keyframes heartFloat {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: var(--heart-opacity, 0.4);
+  }
+  92% {
+    opacity: var(--heart-opacity, 0.4);
+  }
+  100% {
+    transform: translate3d(var(--drift-x, 24px), -115vh, 0) rotate(var(--heart-rotate, 10deg));
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floatingHearts {
+    display: none;
+  }
+}
+
 /* ── Photo tilt (see PhotoTilt component) ── */
 
 @media (hover: hover) and (pointer: fine) {

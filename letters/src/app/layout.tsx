@@ -4,6 +4,7 @@ import ParticleField from "@/components/ParticleField";
 import CustomCursor from "@/components/CustomCursor";
 import AmbientBackground from "@/components/AmbientBackground";
 import PhotoTilt from "@/components/PhotoTilt";
+import FloatingHearts from "@/components/FloatingHearts";
 
 export const metadata: Metadata = {
   title: "Letters I Never Sent You",
@@ -24,6 +25,7 @@ export default function RootLayout({
       <body>
         <AmbientBackground />
         <ParticleField />
+        <FloatingHearts />
         <CustomCursor />
         <PhotoTilt />
         {children}

@@ -1,7 +1,6 @@
 "use client";
 
 import { useSyncExternalStore } from "react";
-import styles from "./Envelope.module.css";
 
 type Heart = {
   id: number;
@@ -12,7 +11,6 @@ type Heart = {
   driftX: number;
   rotate: number;
   opacity: number;
-  glyph: string;
 };
 
 function makeHearts(count: number): Heart[] {
@@ -25,7 +23,6 @@ function makeHearts(count: number): Heart[] {
     driftX: (Math.random() - 0.5) * 60,
     rotate: (Math.random() - 0.5) * 30,
     opacity: 0.3 + Math.random() * 0.35,
-    glyph: "♥",
   }));
 }
 
@@ -39,7 +36,7 @@ function subscribe() {
 }
 
 function getSnapshot() {
-  if (!cached) cached = makeHearts(14);
+  if (!cached) cached = makeHearts(16);
   return cached;
 }
 
@@ -47,15 +44,15 @@ function getServerSnapshot() {
   return EMPTY;
 }
 
-export default function EnvelopeHearts() {
+export default function FloatingHearts() {
   const hearts = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   return (
-    <div className={styles.floatingHearts} aria-hidden="true">
+    <div className="floatingHearts" aria-hidden="true">
       {hearts.map((h) => (
         <span
           key={h.id}
-          className={styles.floatHeart}
+          className="floatHeart"
           style={
             {
               left: `${h.left}%`,
@@ -69,7 +66,7 @@ export default function EnvelopeHearts() {
             } as React.CSSProperties
           }
         >
-          {h.glyph}
+          ♥
         </span>
       ))}
     </div>
