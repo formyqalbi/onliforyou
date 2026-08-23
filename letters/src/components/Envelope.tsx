@@ -68,6 +68,15 @@ export default function Envelope({ onOpen }: { onOpen: () => void }) {
             exit={{ opacity: 0, scale: 0.94, filter: "blur(6px)" }}
             transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
           >
+            <motion.p
+              className={styles.envelopeTitle}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.3 }}
+            >
+              For my Rani
+            </motion.p>
+
             <div
               className={`${styles.envelope} ${stage === "breaking" || stage === "opening" ? styles.sealBreaking : ""
                 } ${stage === "opening" ? styles.flapOpen : ""}`}
@@ -75,8 +84,13 @@ export default function Envelope({ onOpen }: { onOpen: () => void }) {
               <div className={styles.envelopeBody}>
                 <div className={`${styles.sideFlap} ${styles.sideFlapLeft}`} />
                 <div className={`${styles.sideFlap} ${styles.sideFlapRight}`} />
-                <div className={styles.letterPeek} />
+                <div className={styles.letterPeek}>
+                  <span className={styles.letterAddress}>To: Rani ❤</span>
+                </div>
                 <div className={styles.envelopeShading} />
+                <div className={styles.stamp} aria-hidden="true">
+                  <span>☾</span>
+                </div>
               </div>
 
               <div className={styles.envelopeFlap} />
