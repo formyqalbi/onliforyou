@@ -74,7 +74,7 @@ export default function Envelope({ onOpen }: { onOpen: () => void }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
             >
-              For my Rani
+              For my love
             </motion.p>
 
             <div
