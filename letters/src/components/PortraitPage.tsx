@@ -17,6 +17,7 @@ export default function PortraitPage({
   src,
   alt,
   variant = "framed",
+  imgRotate,
   children,
 }: {
   index: number;
@@ -25,6 +26,7 @@ export default function PortraitPage({
   src: string;
   alt: string;
   variant?: Variant;
+  imgRotate?: number;
   children?: React.ReactNode;
 }) {
   return (
@@ -34,6 +36,7 @@ export default function PortraitPage({
           <img
             src={src}
             alt={alt}
+            style={imgRotate ? { transform: `rotate(${imgRotate}deg)` } : undefined}
             onError={(e) => {
               e.currentTarget.src = FALLBACK;
             }}

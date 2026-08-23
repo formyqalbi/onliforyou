@@ -179,7 +179,7 @@ export default function Home() {
               </ListPage>
 
               {/* PAGE 6 — THE MOON */}
-              <PortraitPage index={6} total={TOTAL_PAGES} theme="warm" variant="circle" src="/rani/rani-02.jpeg" alt="Moon">
+              <PortraitPage index={6} total={TOTAL_PAGES} theme="warm" variant="circle" src="/rani/rani-02.jpeg" alt="Moon" imgRotate={-90}>
                 <CinematicText delay={0.5}>
                   <p className={`${txt.lead} font-serif`} style={{ textAlign: 'center', fontSize: '1.5rem' }}>
                     zara kabhi meri nazar se khudko dekh bhi
