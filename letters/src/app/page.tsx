@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import Envelope from "@/components/Envelope";
 import CinematicText from "@/components/CinematicText";
@@ -566,6 +567,12 @@ export default function Home() {
 
                 <CinematicText delay={13} duration={2}>
                   <p style={{ color: 'rgba(255,255,255,0.5)', fontStyle: 'italic' }}>Your husband-to-be.</p>
+                </CinematicText>
+
+                <CinematicText delay={16} duration={2}>
+                  <Link href="/gallery" className={styles.galleryLink}>
+                    walk through every photo of us →
+                  </Link>
                 </CinematicText>
               </ClimaxPage>
             </motion.div>
