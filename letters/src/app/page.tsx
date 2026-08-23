@@ -93,7 +93,7 @@ export default function Home() {
               </TextPage>
 
               {/* PAGE 2 — RANI, THE WOMAN I LOVE */}
-              <PortraitPage index={2} total={TOTAL_PAGES} theme="warm" src="/rani/rani-01.jpeg" alt="Rani">
+              <PortraitPage index={2} total={TOTAL_PAGES} theme="warm" src="/rani/rani-01.jpeg" alt="Rani" imgRotate={180}>
                 <CinematicText delay={0.5}>
                   <p className={txt.body}>Rani, My Qalbi...❤️🌙</p>
                 </CinematicText>
