@@ -3,7 +3,19 @@
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { useState } from "react";
 import MagneticButton from "./MagneticButton";
+import EnvelopeHearts from "./EnvelopeHearts";
 import styles from "./Envelope.module.css";
+
+const SEAL_BURST = Array.from({ length: 14 }, (_, i) => {
+  const angle = (i / 14) * Math.PI * 2 + (Math.random() - 0.5) * 0.4;
+  return {
+    id: i,
+    angle,
+    distance: 60 + Math.random() * 70,
+    size: 10 + Math.random() * 12,
+    delay: Math.random() * 0.15,
+  };
+});
 
 type Stage = "envelope" | "breaking" | "opening" | "invitation";
 
@@ -43,9 +55,12 @@ export default function Envelope({ onOpen }: { onOpen: () => void }) {
 
   const envelopeVisible = stage !== "invitation";
 
+  const showBurst = stage === "breaking" || stage === "opening";
+
   return (
     <div className={styles.container}>
       <div className={styles.ambientGlow} aria-hidden="true" />
+      <EnvelopeHearts />
 
       <AnimatePresence mode="wait">
         {envelopeVisible ? (
@@ -60,6 +75,8 @@ export default function Envelope({ onOpen }: { onOpen: () => void }) {
                 } ${stage === "opening" ? styles.flapOpen : ""}`}
             >
               <div className={styles.envelopeBody}>
+                <div className={`${styles.sideFlap} ${styles.sideFlapLeft}`} />
+                <div className={`${styles.sideFlap} ${styles.sideFlapRight}`} />
                 <div className={styles.letterPeek} />
                 <div className={styles.envelopeShading} />
               </div>
@@ -77,6 +94,30 @@ export default function Envelope({ onOpen }: { onOpen: () => void }) {
                 <span className={`${styles.sealHalf} ${styles.sealRight}`} />
                 <span className={styles.sealHeart}>♥</span>
               </button>
+
+              {stage === "breaking" && <div className={styles.sealFlash} aria-hidden="true" />}
+
+              {showBurst && (
+                <div className={styles.sealBurst} aria-hidden="true">
+                  {SEAL_BURST.map((h) => (
+                    <motion.span
+                      key={h.id}
+                      className={styles.burstHeart}
+                      style={{ fontSize: h.size }}
+                      initial={{ x: 0, y: 0, opacity: 1, scale: 0.4 }}
+                      animate={{
+                        x: Math.cos(h.angle) * h.distance,
+                        y: Math.sin(h.angle) * h.distance - 20,
+                        opacity: 0,
+                        scale: 1,
+                      }}
+                      transition={{ duration: 0.9, delay: h.delay, ease: [0.16, 0.8, 0.3, 1] }}
+                    >
+                      ❤
+                    </motion.span>
+                  ))}
+                </div>
+              )}
             </div>
 
             <motion.p
