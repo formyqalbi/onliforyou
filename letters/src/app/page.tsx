@@ -541,7 +541,7 @@ export default function Home() {
                   <p className="font-serif text-gold" style={{ fontSize: '1.8rem' }}>And now...</p>
                 </CinematicText>
                 <CinematicText delay={7.5}>
-                  <p className="font-serif" style={{ fontSize: '2rem' }}>I get to call you my wife-to-be.</p>
+                  <p className="font-serif" style={{ fontSize: '2rem' }}>I get to call you my Qalbi ❤️🌸.</p>
                 </CinematicText>
               </PortraitPage>
 
@@ -571,7 +571,7 @@ export default function Home() {
 
                 <CinematicText delay={16} duration={2}>
                   <Link href="/gallery" className={styles.galleryLink}>
-                    walk through every photo of us →
+                    Our love gallery →
                   </Link>
                 </CinematicText>
               </ClimaxPage>
