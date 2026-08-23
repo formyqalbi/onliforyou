@@ -369,6 +369,9 @@
 
   .photoSection {
     max-width: 340px;
+    /* The scattered photos are rotated/near the top edge of their own box,
+       which otherwise reads as glued to the status bar/notch on phones */
+    margin-top: calc(1.5rem + env(safe-area-inset-top, 0px));
   }
 
   .scatteredPhoto {
