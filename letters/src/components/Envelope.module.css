@@ -32,6 +32,7 @@
   position: absolute;
   bottom: -8%;
   line-height: 1;
+  font-family: sans-serif;
   animation-name: heartFloat;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
@@ -103,6 +104,7 @@
   position: absolute;
   top: 0;
   left: 0;
+  font-family: sans-serif;
   color: var(--accent-rose);
   text-shadow: 0 0 8px rgba(255, 111, 160, 0.6);
 }
@@ -255,6 +257,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: sans-serif;
   color: rgba(246, 217, 230, 0.88);
   font-size: clamp(1.2rem, 4vw, 1.6rem);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);

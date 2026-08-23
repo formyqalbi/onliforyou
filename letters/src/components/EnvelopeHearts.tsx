@@ -16,17 +16,16 @@ type Heart = {
 };
 
 function makeHearts(count: number): Heart[] {
-  const glyphs = ["❤", "♥"];
   return Array.from({ length: count }, (_, id) => ({
     id,
     left: Math.random() * 100,
-    size: 14 + Math.random() * 22,
+    size: 16 + Math.random() * 24,
     duration: 10 + Math.random() * 10,
     delay: -(Math.random() * 14),
     driftX: (Math.random() - 0.5) * 60,
     rotate: (Math.random() - 0.5) * 30,
-    opacity: 0.2 + Math.random() * 0.3,
-    glyph: glyphs[id % glyphs.length],
+    opacity: 0.3 + Math.random() * 0.35,
+    glyph: "♥",
   }));
 }
 

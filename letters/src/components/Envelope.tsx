@@ -113,7 +113,7 @@ export default function Envelope({ onOpen }: { onOpen: () => void }) {
                       }}
                       transition={{ duration: 0.9, delay: h.delay, ease: [0.16, 0.8, 0.3, 1] }}
                     >
-                      ❤
+                      ♥
                     </motion.span>
                   ))}
                 </div>
