@@ -566,7 +566,7 @@ export default function Home() {
                 </BirthdayBurst>
 
                 <CinematicText delay={13} duration={2}>
-                  <p className="font-script" style={{ color: 'rgba(255,255,255,0.65)', fontSize: '1.8rem' }}>Your husband-to-be.</p>
+                  <p className="font-script" style={{ color: 'rgba(255,255,255,0.65)', fontSize: '1.8rem' }}>Your shohar-to-be.</p>
                 </CinematicText>
 
                 <CinematicText delay={16} duration={2}>
