@@ -219,7 +219,7 @@ export default function Home() {
                   </div>
                 </CinematicText>
                 <CinematicText delay={3}>
-                  <p className={`${txt.lead} font-serif`}>You completes me in every aspect.</p>
+                  <p className={`${txt.lead} font-serif`}>You complete me in every aspect.</p>
                 </CinematicText>
               </TextPage>
 
@@ -535,13 +535,13 @@ export default function Home() {
                   <p className="font-serif text-warm" style={{ fontSize: '1.5rem' }}>And still...</p>
                 </CinematicText>
                 <CinematicText delay={4.5}>
-                  <p className={txt.body} style={{ fontSize: '1.3rem' }}>you became my home before you even became my wife.</p>
+                  <p className={txt.body} style={{ fontSize: '1.3rem' }}>you became my home before you even became mine.</p>
                 </CinematicText>
                 <CinematicText delay={6}>
                   <p className="font-serif text-gold" style={{ fontSize: '1.8rem' }}>And now...</p>
                 </CinematicText>
                 <CinematicText delay={7.5}>
-                  <p className="font-serif" style={{ fontSize: '2rem' }}>I get to call you my wife.</p>
+                  <p className="font-serif" style={{ fontSize: '2rem' }}>I get to call you my wife-to-be.</p>
                 </CinematicText>
               </PortraitPage>
 
