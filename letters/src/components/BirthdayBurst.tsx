@@ -4,7 +4,7 @@ import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useMemo, useRef, useState } from "react";
 import React from "react";
 
-const COLORS = ["#C9A47A", "#B77B78", "#F4EBDD", "#E8C98D"];
+const COLORS = ["#FF6FA0", "#E8779C", "#F4EBDD", "#FFB6D2"];
 
 type Confetto = {
   id: number;

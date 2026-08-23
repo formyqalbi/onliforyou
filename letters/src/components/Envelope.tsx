@@ -11,8 +11,8 @@ const fallbackPortrait =
   "data:image/svg+xml;charset=UTF-8," +
   encodeURIComponent(
     `<svg width='500' height='650' xmlns='http://www.w3.org/2000/svg'>
-      <rect width='100%' height='100%' fill='#1A1415'/>
-      <text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='#C9A47A' font-family='serif' font-size='22'>Rani</text>
+      <rect width='100%' height='100%' fill='#1E0F17'/>
+      <text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='#FF6FA0' font-family='serif' font-size='22'>Rani</text>
     </svg>`
   );
 
@@ -132,7 +132,7 @@ export default function Envelope({ onOpen }: { onOpen: () => void }) {
               >
                 <MagneticButton
                   className={styles.openBtn}
-                  whileHover={{ scale: 1.04, boxShadow: "0 14px 32px rgba(201,164,122,0.4)" }}
+                  whileHover={{ scale: 1.04, boxShadow: "0 14px 32px rgba(255,111,160,0.4)" }}
                   whileTap={{ scale: 0.97 }}
                   onClick={onOpen}
                 >

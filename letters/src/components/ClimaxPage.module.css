@@ -1,12 +1,12 @@
 .climax {
   background-image:
-    radial-gradient(1px 1px at 15% 20%, rgba(244, 235, 221, 0.6), transparent),
-    radial-gradient(1px 1px at 78% 15%, rgba(244, 235, 221, 0.45), transparent),
-    radial-gradient(1.5px 1.5px at 40% 65%, rgba(244, 235, 221, 0.5), transparent),
-    radial-gradient(1px 1px at 88% 55%, rgba(244, 235, 221, 0.4), transparent),
-    radial-gradient(1px 1px at 25% 80%, rgba(244, 235, 221, 0.5), transparent),
-    radial-gradient(1.5px 1.5px at 62% 88%, rgba(244, 235, 221, 0.4), transparent),
-    radial-gradient(ellipse 60% 45% at 50% 50%, rgba(201, 164, 122, 0.1) 0%, transparent 70%);
+    radial-gradient(1px 1px at 15% 20%, rgba(246, 217, 230, 0.6), transparent),
+    radial-gradient(1px 1px at 78% 15%, rgba(246, 217, 230, 0.45), transparent),
+    radial-gradient(1.5px 1.5px at 40% 65%, rgba(246, 217, 230, 0.5), transparent),
+    radial-gradient(1px 1px at 88% 55%, rgba(246, 217, 230, 0.4), transparent),
+    radial-gradient(1px 1px at 25% 80%, rgba(246, 217, 230, 0.5), transparent),
+    radial-gradient(1.5px 1.5px at 62% 88%, rgba(246, 217, 230, 0.4), transparent),
+    radial-gradient(ellipse 60% 45% at 50% 50%, rgba(255, 111, 160, 0.1) 0%, transparent 70%);
 }
 
 .stack {

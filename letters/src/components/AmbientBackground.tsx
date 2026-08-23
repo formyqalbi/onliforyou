@@ -21,7 +21,7 @@ export default function AmbientBackground() {
         rotate,
         x: drift,
         background:
-          "conic-gradient(from 0deg at 50% 32%, #b77b78 0deg, #c9a47a 70deg, transparent 140deg, transparent 220deg, #8a6a4f 280deg, #b77b78 360deg)",
+          "conic-gradient(from 0deg at 50% 32%, #e8779c 0deg, #ff6fa0 70deg, transparent 140deg, transparent 220deg, #7A2A50 280deg, #e8779c 360deg)",
       }}
     />
   );

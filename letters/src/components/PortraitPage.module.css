@@ -25,8 +25,8 @@
   aspect-ratio: 3 / 4;
   border-radius: 6px;
   padding: 10px;
-  background: linear-gradient(155deg, rgba(244, 235, 221, 0.06), rgba(244, 235, 221, 0.015));
-  border: 1px solid rgba(244, 235, 221, 0.08);
+  background: linear-gradient(155deg, rgba(246, 217, 230, 0.06), rgba(246, 217, 230, 0.015));
+  border: 1px solid rgba(246, 217, 230, 0.08);
 }
 
 .framed img {
@@ -39,7 +39,7 @@
   max-width: 60vw;
   max-height: 60vw;
   border-radius: 50%;
-  border: 1px solid rgba(244, 235, 221, 0.2);
+  border: 1px solid rgba(246, 217, 230, 0.2);
 }
 
 .bleed {

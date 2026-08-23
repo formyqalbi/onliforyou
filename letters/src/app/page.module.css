@@ -39,7 +39,7 @@
   letter-spacing: 0.04em;
   color: var(--accent-gold);
   text-decoration: none;
-  border-bottom: 1px solid rgba(224, 180, 114, 0.3);
+  border-bottom: 1px solid rgba(255, 159, 192, 0.3);
   padding-bottom: 2px;
   transition: border-color 0.3s var(--ease-out), opacity 0.3s var(--ease-out);
   opacity: 0.8;
@@ -47,5 +47,5 @@
 
 .galleryLink:hover {
   opacity: 1;
-  border-color: rgba(224, 180, 114, 0.8);
+  border-color: rgba(255, 159, 192, 0.8);
 }

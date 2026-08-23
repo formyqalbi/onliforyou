@@ -401,7 +401,7 @@ export default function Home() {
 
               {/* PAGE 14 — DUA FOR OUR FUTURE & AKHIRAT */}
               <TextPage index={14} total={TOTAL_PAGES} theme="dark">
-                <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at center, rgba(201,162,112,0.06) 0%, transparent 70%)', pointerEvents: 'none' }} />
+                <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at center, rgba(255,111,160,0.06) 0%, transparent 70%)', pointerEvents: 'none' }} />
                 <CinematicText>
                   <p className={txt.body} style={{ lineHeight: 2.2 }}>
                     Allah hm dono ke beeech beintehaan sukooon nawaaze,<br /><br />

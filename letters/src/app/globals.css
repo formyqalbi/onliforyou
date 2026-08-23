@@ -2,28 +2,28 @@
 
 /* ═══════════════════════════════════════════
    DESIGN SYSTEM — Letters I Never Sent You
-   Palette: black coffee + parchment + faded rose + candlelight
+   Palette: deep plum + blush paper + vivid pink glow
    ═══════════════════════════════════════════ */
 
 :root {
   /* Backgrounds — near-black for the quiet/dramatic pages,
      a real warm mahogany-wine for the tender pages, so the two
      actually read as distinct moods rather than two shades of black */
-  --bg-deep: #0D0908;
-  --bg-dark: #15100D;
-  --bg-warm: #3B2116;
+  --bg-deep: #17060F;
+  --bg-dark: #20091A;
+  --bg-warm: #4A1230;
 
   /* Paper / text */
-  --paper: #F8EFDD;
-  --paper-soft: #ECDFC7;
-  --text-muted: #B29A83;
+  --paper: #FDEEF4;
+  --paper-soft: #F6D9E6;
+  --text-muted: #C98CA8;
 
   /* Accents */
-  --accent-rose: #CC8F80;
-  --accent-gold: #E0B472;
+  --accent-rose: #FF6FA0;
+  --accent-gold: #FF9FC0;
 
   /* Borders & dividers */
-  --border-soft: rgba(244, 235, 221, 0.08);
+  --border-soft: rgba(246, 217, 230, 0.08);
 
   /* Typography */
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -82,7 +82,7 @@ html, body {
 }
 
 ::selection {
-  background: rgba(201, 164, 122, 0.25);
+  background: rgba(255, 111, 160, 0.25);
   color: var(--paper);
 }
 
@@ -132,11 +132,11 @@ body::before {
   background: var(--bg-deep);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(244, 235, 221, 0.12);
+  background: rgba(246, 217, 230, 0.12);
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(244, 235, 221, 0.2);
+  background: rgba(246, 217, 230, 0.2);
 }
 
 /* ── Utility classes ─────────────────────── */
@@ -152,12 +152,12 @@ body::before {
 .text-gold {
   background: linear-gradient(
     100deg,
-    #b3854f 0%,
-    #f0cf94 22%,
-    #fff2cf 32%,
-    #f0cf94 42%,
-    #b3854f 64%,
-    #e0b472 100%
+    #b3467a 0%,
+    #ff8fc4 22%,
+    #fff0f7 32%,
+    #ff8fc4 42%,
+    #b3467a 64%,
+    #ff9fc0 100%
   );
   background-size: 260% 100%;
   background-position: 0% 50%;
@@ -186,17 +186,17 @@ body::before {
 
 @keyframes birthdayBreathe {
   0%, 100% {
-    text-shadow: 0 0 18px rgba(201, 164, 122, 0.35), 0 0 40px rgba(201, 164, 122, 0.12);
+    text-shadow: 0 0 18px rgba(255, 111, 160, 0.35), 0 0 40px rgba(255, 111, 160, 0.12);
   }
   50% {
-    text-shadow: 0 0 28px rgba(201, 164, 122, 0.55), 0 0 60px rgba(201, 164, 122, 0.22);
+    text-shadow: 0 0 28px rgba(255, 111, 160, 0.55), 0 0 60px rgba(255, 111, 160, 0.22);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .birthdayGlow {
     animation: none;
-    text-shadow: 0 0 24px rgba(201, 164, 122, 0.4);
+    text-shadow: 0 0 24px rgba(255, 111, 160, 0.4);
   }
 }
 
@@ -240,7 +240,7 @@ body::before {
   z-index: 60;
   transform-origin: 0% 50%;
   background: linear-gradient(90deg, var(--accent-rose), var(--accent-gold));
-  box-shadow: 0 0 12px rgba(201, 164, 122, 0.5);
+  box-shadow: 0 0 12px rgba(255, 111, 160, 0.5);
 }
 
 /* ── Ambient particles ───────────────────── */
@@ -257,7 +257,7 @@ body::before {
   position: absolute;
   bottom: -5vh;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(201, 164, 122, 0.9) 0%, rgba(201, 164, 122, 0) 70%);
+  background: radial-gradient(circle, rgba(255, 111, 160, 0.9) 0%, rgba(255, 111, 160, 0) 70%);
   animation-name: drift;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -321,7 +321,7 @@ body::before {
   height: 32px;
   margin: -16px 0 0 -16px;
   border-radius: 50%;
-  border: 1px solid rgba(201, 164, 122, 0.5);
+  border: 1px solid rgba(255, 111, 160, 0.5);
   z-index: 998;
   pointer-events: none;
   will-change: transform;
@@ -332,7 +332,7 @@ body::before {
   width: 52px;
   height: 52px;
   margin: -26px 0 0 -26px;
-  border-color: rgba(201, 164, 122, 0.9);
+  border-color: rgba(255, 111, 160, 0.9);
 }
 
 /* ── Page counter ─────────────────────────── */
